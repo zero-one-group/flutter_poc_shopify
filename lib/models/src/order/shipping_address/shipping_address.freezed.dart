@@ -12,60 +12,11 @@ part of 'shipping_address.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 ShippingAddress _$ShippingAddressFromJson(Map<String, dynamic> json) {
   return _ShippingAddress.fromJson(json);
 }
-
-/// @nodoc
-class _$ShippingAddressTearOff {
-  const _$ShippingAddressTearOff();
-
-  _ShippingAddress call(
-      {required String name,
-      required String firstName,
-      required String id,
-      required String lastName,
-      required String address1,
-      required String city,
-      required String country,
-      String? address2,
-      String? company,
-      String? countryCodeV2,
-      double? latitude,
-      double? longitude,
-      String? phone,
-      String? province,
-      String? provinceCode,
-      required String zip}) {
-    return _ShippingAddress(
-      name: name,
-      firstName: firstName,
-      id: id,
-      lastName: lastName,
-      address1: address1,
-      city: city,
-      country: country,
-      address2: address2,
-      company: company,
-      countryCodeV2: countryCodeV2,
-      latitude: latitude,
-      longitude: longitude,
-      phone: phone,
-      province: province,
-      provinceCode: provinceCode,
-      zip: zip,
-    );
-  }
-
-  ShippingAddress fromJson(Map<String, Object?> json) {
-    return ShippingAddress.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $ShippingAddress = _$ShippingAddressTearOff();
 
 /// @nodoc
 mixin _$ShippingAddress {
@@ -214,11 +165,11 @@ class _$ShippingAddressCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$ShippingAddressCopyWith<$Res>
+abstract class _$$_ShippingAddressCopyWith<$Res>
     implements $ShippingAddressCopyWith<$Res> {
-  factory _$ShippingAddressCopyWith(
-          _ShippingAddress value, $Res Function(_ShippingAddress) then) =
-      __$ShippingAddressCopyWithImpl<$Res>;
+  factory _$$_ShippingAddressCopyWith(
+          _$_ShippingAddress value, $Res Function(_$_ShippingAddress) then) =
+      __$$_ShippingAddressCopyWithImpl<$Res>;
   @override
   $Res call(
       {String name,
@@ -240,15 +191,15 @@ abstract class _$ShippingAddressCopyWith<$Res>
 }
 
 /// @nodoc
-class __$ShippingAddressCopyWithImpl<$Res>
+class __$$_ShippingAddressCopyWithImpl<$Res>
     extends _$ShippingAddressCopyWithImpl<$Res>
-    implements _$ShippingAddressCopyWith<$Res> {
-  __$ShippingAddressCopyWithImpl(
-      _ShippingAddress _value, $Res Function(_ShippingAddress) _then)
-      : super(_value, (v) => _then(v as _ShippingAddress));
+    implements _$$_ShippingAddressCopyWith<$Res> {
+  __$$_ShippingAddressCopyWithImpl(
+      _$_ShippingAddress _value, $Res Function(_$_ShippingAddress) _then)
+      : super(_value, (v) => _then(v as _$_ShippingAddress));
 
   @override
-  _ShippingAddress get _value => super._value as _ShippingAddress;
+  _$_ShippingAddress get _value => super._value as _$_ShippingAddress;
 
   @override
   $Res call({
@@ -269,7 +220,7 @@ class __$ShippingAddressCopyWithImpl<$Res>
     Object? provinceCode = freezed,
     Object? zip = freezed,
   }) {
-    return _then(_ShippingAddress(
+    return _then(_$_ShippingAddress(
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -404,7 +355,7 @@ class _$_ShippingAddress implements _ShippingAddress {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ShippingAddress &&
+            other is _$_ShippingAddress &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.firstName, firstName) &&
             const DeepCollectionEquality().equals(other.id, id) &&
@@ -425,6 +376,7 @@ class _$_ShippingAddress implements _ShippingAddress {
             const DeepCollectionEquality().equals(other.zip, zip));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -447,33 +399,35 @@ class _$_ShippingAddress implements _ShippingAddress {
 
   @JsonKey(ignore: true)
   @override
-  _$ShippingAddressCopyWith<_ShippingAddress> get copyWith =>
-      __$ShippingAddressCopyWithImpl<_ShippingAddress>(this, _$identity);
+  _$$_ShippingAddressCopyWith<_$_ShippingAddress> get copyWith =>
+      __$$_ShippingAddressCopyWithImpl<_$_ShippingAddress>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ShippingAddressToJson(this);
+    return _$$_ShippingAddressToJson(
+      this,
+    );
   }
 }
 
 abstract class _ShippingAddress implements ShippingAddress {
   factory _ShippingAddress(
-      {required String name,
-      required String firstName,
-      required String id,
-      required String lastName,
-      required String address1,
-      required String city,
-      required String country,
-      String? address2,
-      String? company,
-      String? countryCodeV2,
-      double? latitude,
-      double? longitude,
-      String? phone,
-      String? province,
-      String? provinceCode,
-      required String zip}) = _$_ShippingAddress;
+      {required final String name,
+      required final String firstName,
+      required final String id,
+      required final String lastName,
+      required final String address1,
+      required final String city,
+      required final String country,
+      final String? address2,
+      final String? company,
+      final String? countryCodeV2,
+      final double? latitude,
+      final double? longitude,
+      final String? phone,
+      final String? province,
+      final String? provinceCode,
+      required final String zip}) = _$_ShippingAddress;
 
   factory _ShippingAddress.fromJson(Map<String, dynamic> json) =
       _$_ShippingAddress.fromJson;
@@ -512,6 +466,6 @@ abstract class _ShippingAddress implements ShippingAddress {
   String get zip;
   @override
   @JsonKey(ignore: true)
-  _$ShippingAddressCopyWith<_ShippingAddress> get copyWith =>
+  _$$_ShippingAddressCopyWith<_$_ShippingAddress> get copyWith =>
       throw _privateConstructorUsedError;
 }

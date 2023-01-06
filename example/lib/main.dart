@@ -7,8 +7,8 @@ import 'screens/profile_tab.dart';
 import 'screens/search_tab.dart';
 
 void main() {
-  ShopifyConfig.setConfig('9a6f9561ad910bd37b7ec9df8dbaa866',
-      'cleansimpleeats.myshopify.com', '2020-10');
+  ShopifyConfig.setConfig('f0428b22d1c0240f05e003bf13390e17',
+      'zero-one-tech.myshopify.com', '2022-10');
   runApp(MyApp());
 }
 

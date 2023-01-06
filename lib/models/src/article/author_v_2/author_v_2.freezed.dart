@@ -12,38 +12,11 @@ part of 'author_v_2.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 AuthorV2 _$AuthorV2FromJson(Map<String, dynamic> json) {
   return _AuthorV2.fromJson(json);
 }
-
-/// @nodoc
-class _$AuthorV2TearOff {
-  const _$AuthorV2TearOff();
-
-  _AuthorV2 call(
-      {String? bio,
-      String? email,
-      String? firstName,
-      String? lastName,
-      String? name}) {
-    return _AuthorV2(
-      bio: bio,
-      email: email,
-      firstName: firstName,
-      lastName: lastName,
-      name: name,
-    );
-  }
-
-  AuthorV2 fromJson(Map<String, Object?> json) {
-    return AuthorV2.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $AuthorV2 = _$AuthorV2TearOff();
 
 /// @nodoc
 mixin _$AuthorV2 {
@@ -113,9 +86,10 @@ class _$AuthorV2CopyWithImpl<$Res> implements $AuthorV2CopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$AuthorV2CopyWith<$Res> implements $AuthorV2CopyWith<$Res> {
-  factory _$AuthorV2CopyWith(_AuthorV2 value, $Res Function(_AuthorV2) then) =
-      __$AuthorV2CopyWithImpl<$Res>;
+abstract class _$$_AuthorV2CopyWith<$Res> implements $AuthorV2CopyWith<$Res> {
+  factory _$$_AuthorV2CopyWith(
+          _$_AuthorV2 value, $Res Function(_$_AuthorV2) then) =
+      __$$_AuthorV2CopyWithImpl<$Res>;
   @override
   $Res call(
       {String? bio,
@@ -126,13 +100,14 @@ abstract class _$AuthorV2CopyWith<$Res> implements $AuthorV2CopyWith<$Res> {
 }
 
 /// @nodoc
-class __$AuthorV2CopyWithImpl<$Res> extends _$AuthorV2CopyWithImpl<$Res>
-    implements _$AuthorV2CopyWith<$Res> {
-  __$AuthorV2CopyWithImpl(_AuthorV2 _value, $Res Function(_AuthorV2) _then)
-      : super(_value, (v) => _then(v as _AuthorV2));
+class __$$_AuthorV2CopyWithImpl<$Res> extends _$AuthorV2CopyWithImpl<$Res>
+    implements _$$_AuthorV2CopyWith<$Res> {
+  __$$_AuthorV2CopyWithImpl(
+      _$_AuthorV2 _value, $Res Function(_$_AuthorV2) _then)
+      : super(_value, (v) => _then(v as _$_AuthorV2));
 
   @override
-  _AuthorV2 get _value => super._value as _AuthorV2;
+  _$_AuthorV2 get _value => super._value as _$_AuthorV2;
 
   @override
   $Res call({
@@ -142,7 +117,7 @@ class __$AuthorV2CopyWithImpl<$Res> extends _$AuthorV2CopyWithImpl<$Res>
     Object? lastName = freezed,
     Object? name = freezed,
   }) {
-    return _then(_AuthorV2(
+    return _then(_$_AuthorV2(
       bio: bio == freezed
           ? _value.bio
           : bio // ignore: cast_nullable_to_non_nullable
@@ -195,7 +170,7 @@ class _$_AuthorV2 implements _AuthorV2 {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _AuthorV2 &&
+            other is _$_AuthorV2 &&
             const DeepCollectionEquality().equals(other.bio, bio) &&
             const DeepCollectionEquality().equals(other.email, email) &&
             const DeepCollectionEquality().equals(other.firstName, firstName) &&
@@ -203,6 +178,7 @@ class _$_AuthorV2 implements _AuthorV2 {
             const DeepCollectionEquality().equals(other.name, name));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -214,22 +190,24 @@ class _$_AuthorV2 implements _AuthorV2 {
 
   @JsonKey(ignore: true)
   @override
-  _$AuthorV2CopyWith<_AuthorV2> get copyWith =>
-      __$AuthorV2CopyWithImpl<_AuthorV2>(this, _$identity);
+  _$$_AuthorV2CopyWith<_$_AuthorV2> get copyWith =>
+      __$$_AuthorV2CopyWithImpl<_$_AuthorV2>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_AuthorV2ToJson(this);
+    return _$$_AuthorV2ToJson(
+      this,
+    );
   }
 }
 
 abstract class _AuthorV2 implements AuthorV2 {
   factory _AuthorV2(
-      {String? bio,
-      String? email,
-      String? firstName,
-      String? lastName,
-      String? name}) = _$_AuthorV2;
+      {final String? bio,
+      final String? email,
+      final String? firstName,
+      final String? lastName,
+      final String? name}) = _$_AuthorV2;
 
   factory _AuthorV2.fromJson(Map<String, dynamic> json) = _$_AuthorV2.fromJson;
 
@@ -245,6 +223,6 @@ abstract class _AuthorV2 implements AuthorV2 {
   String? get name;
   @override
   @JsonKey(ignore: true)
-  _$AuthorV2CopyWith<_AuthorV2> get copyWith =>
+  _$$_AuthorV2CopyWith<_$_AuthorV2> get copyWith =>
       throw _privateConstructorUsedError;
 }

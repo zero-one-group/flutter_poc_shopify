@@ -12,52 +12,11 @@ part of 'address_details.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 AddressDetails _$AddressDetailsFromJson(Map<String, dynamic> json) {
   return _AddressDetails.fromJson(json);
 }
-
-/// @nodoc
-class _$AddressDetailsTearOff {
-  const _$AddressDetailsTearOff();
-
-  _AddressDetails call(
-      {String? address1,
-      String? address2,
-      String? city,
-      String? company,
-      String? completionService,
-      String? country,
-      String? countryCode,
-      double? latitude,
-      double? longitude,
-      String? province,
-      String? provinceCode,
-      String? zip}) {
-    return _AddressDetails(
-      address1: address1,
-      address2: address2,
-      city: city,
-      company: company,
-      completionService: completionService,
-      country: country,
-      countryCode: countryCode,
-      latitude: latitude,
-      longitude: longitude,
-      province: province,
-      provinceCode: provinceCode,
-      zip: zip,
-    );
-  }
-
-  AddressDetails fromJson(Map<String, Object?> json) {
-    return AddressDetails.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $AddressDetails = _$AddressDetailsTearOff();
 
 /// @nodoc
 mixin _$AddressDetails {
@@ -178,11 +137,11 @@ class _$AddressDetailsCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$AddressDetailsCopyWith<$Res>
+abstract class _$$_AddressDetailsCopyWith<$Res>
     implements $AddressDetailsCopyWith<$Res> {
-  factory _$AddressDetailsCopyWith(
-          _AddressDetails value, $Res Function(_AddressDetails) then) =
-      __$AddressDetailsCopyWithImpl<$Res>;
+  factory _$$_AddressDetailsCopyWith(
+          _$_AddressDetails value, $Res Function(_$_AddressDetails) then) =
+      __$$_AddressDetailsCopyWithImpl<$Res>;
   @override
   $Res call(
       {String? address1,
@@ -200,15 +159,15 @@ abstract class _$AddressDetailsCopyWith<$Res>
 }
 
 /// @nodoc
-class __$AddressDetailsCopyWithImpl<$Res>
+class __$$_AddressDetailsCopyWithImpl<$Res>
     extends _$AddressDetailsCopyWithImpl<$Res>
-    implements _$AddressDetailsCopyWith<$Res> {
-  __$AddressDetailsCopyWithImpl(
-      _AddressDetails _value, $Res Function(_AddressDetails) _then)
-      : super(_value, (v) => _then(v as _AddressDetails));
+    implements _$$_AddressDetailsCopyWith<$Res> {
+  __$$_AddressDetailsCopyWithImpl(
+      _$_AddressDetails _value, $Res Function(_$_AddressDetails) _then)
+      : super(_value, (v) => _then(v as _$_AddressDetails));
 
   @override
-  _AddressDetails get _value => super._value as _AddressDetails;
+  _$_AddressDetails get _value => super._value as _$_AddressDetails;
 
   @override
   $Res call({
@@ -225,7 +184,7 @@ class __$AddressDetailsCopyWithImpl<$Res>
     Object? provinceCode = freezed,
     Object? zip = freezed,
   }) {
-    return _then(_AddressDetails(
+    return _then(_$_AddressDetails(
       address1: address1 == freezed
           ? _value.address1
           : address1 // ignore: cast_nullable_to_non_nullable
@@ -332,7 +291,7 @@ class _$_AddressDetails implements _AddressDetails {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _AddressDetails &&
+            other is _$_AddressDetails &&
             const DeepCollectionEquality().equals(other.address1, address1) &&
             const DeepCollectionEquality().equals(other.address2, address2) &&
             const DeepCollectionEquality().equals(other.city, city) &&
@@ -350,6 +309,7 @@ class _$_AddressDetails implements _AddressDetails {
             const DeepCollectionEquality().equals(other.zip, zip));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -368,29 +328,31 @@ class _$_AddressDetails implements _AddressDetails {
 
   @JsonKey(ignore: true)
   @override
-  _$AddressDetailsCopyWith<_AddressDetails> get copyWith =>
-      __$AddressDetailsCopyWithImpl<_AddressDetails>(this, _$identity);
+  _$$_AddressDetailsCopyWith<_$_AddressDetails> get copyWith =>
+      __$$_AddressDetailsCopyWithImpl<_$_AddressDetails>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_AddressDetailsToJson(this);
+    return _$$_AddressDetailsToJson(
+      this,
+    );
   }
 }
 
 abstract class _AddressDetails implements AddressDetails {
   const factory _AddressDetails(
-      {String? address1,
-      String? address2,
-      String? city,
-      String? company,
-      String? completionService,
-      String? country,
-      String? countryCode,
-      double? latitude,
-      double? longitude,
-      String? province,
-      String? provinceCode,
-      String? zip}) = _$_AddressDetails;
+      {final String? address1,
+      final String? address2,
+      final String? city,
+      final String? company,
+      final String? completionService,
+      final String? country,
+      final String? countryCode,
+      final double? latitude,
+      final double? longitude,
+      final String? province,
+      final String? provinceCode,
+      final String? zip}) = _$_AddressDetails;
 
   factory _AddressDetails.fromJson(Map<String, dynamic> json) =
       _$_AddressDetails.fromJson;
@@ -421,6 +383,6 @@ abstract class _AddressDetails implements AddressDetails {
   String? get zip;
   @override
   @JsonKey(ignore: true)
-  _$AddressDetailsCopyWith<_AddressDetails> get copyWith =>
+  _$$_AddressDetailsCopyWith<_$_AddressDetails> get copyWith =>
       throw _privateConstructorUsedError;
 }

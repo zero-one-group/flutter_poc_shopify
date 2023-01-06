@@ -1,0 +1,1 @@
+enum SellingPlanCheckoutChargeType { PERCENTAGE, PRICE }
