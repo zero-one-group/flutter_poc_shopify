@@ -3,7 +3,7 @@
 [![pub package](https://img.shields.io/pub/v/flutter_simple_shopify.svg)](https://pub.dev/packages/flutter_simple_shopify)
 ![Build](https://github.com/ThinkSimple/flutter_simple_shopify/workflows/Build/badge.svg)
 
-![](https://i.ibb.co/GJ3Gxvx/shopifqy.gif)
+![preview](https://i.ibb.co/GJ3Gxvx/shopifqy.gif)
 
 
 A new Flutter package which provides help in creating a mobile app of a shopify store.
