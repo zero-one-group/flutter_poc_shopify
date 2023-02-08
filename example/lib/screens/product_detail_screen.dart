@@ -1,6 +1,12 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_simple_shopify/enums/src/currency_code.dart';
 import 'package:flutter_simple_shopify/flutter_simple_shopify.dart';
+import 'package:flutter_simple_shopify/models/src/order/discount_allocations/discount_allocations.dart';
+import 'package:flutter_simple_shopify/models/src/product/price_v_2/price_v_2.dart';
 import 'package:flutter_simple_shopify/models/src/product/product_variant/product_variant.dart';
+import 'package:flutter_simple_shopify/shopify/src/shopify_cart.dart';
 
 class ProductDetailScreen extends StatefulWidget {
   const ProductDetailScreen({Key key, @required this.product})
@@ -62,8 +68,23 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
     return widgetList;
   }
 
-  ///Adds a product variant to the checkout
-  Future<void> _addProductToShoppingCart(ProductVariant variant) async {}
+  /// Adds a product variant to the checkout
+  Future<void> _addProductToShoppingCart(ProductVariant variant) async {
+    ShopifyCart.instance.addToCart(variant, 1);
+
+    final price =
+        PriceV2(amount: 1000, currencyCode: CurrencyCode.IDR.toString());
+    final discount = DiscountAllocations(allocatedAmount: price);
+    final lineItem = LineItem(
+        title: 'test',
+        quantity: 1,
+        discountAllocations: [discount],
+        variantId: variant.id);
+
+    final checkout =
+        await ShopifyCheckout.instance.createCheckout(lineItems: [lineItem]);
+    debugPrint('checkout $checkout');
+  }
 
   Future<void> _removeProductFromShoppingCart(LineItem lineItem) async {
     print(lineItem.id);

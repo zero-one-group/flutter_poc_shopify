@@ -34,8 +34,7 @@ _$_Checkout _$$_CheckoutFromJson(Map<String, dynamic> json) => _$_Checkout(
       shopifyPaymentsAccountId: json['shopifyPaymentsAccountId'] as String?,
       shippingAddress: json['shippingAddress'] == null
           ? null
-          : MailingAddress.fromJson(
-              json['shippingAddress'] as Map<String, dynamic>),
+          : Address.fromJson(json['shippingAddress'] as Map<String, dynamic>),
       shippingLine: json['shippingLine'] == null
           ? null
           : ShippingRates.fromJson(

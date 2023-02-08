@@ -39,7 +39,7 @@ mixin _$Checkout {
   Order? get order => throw _privateConstructorUsedError;
   String? get orderStatusUrl => throw _privateConstructorUsedError;
   String? get shopifyPaymentsAccountId => throw _privateConstructorUsedError;
-  MailingAddress? get shippingAddress => throw _privateConstructorUsedError;
+  Address? get shippingAddress => throw _privateConstructorUsedError;
   ShippingRates? get shippingLine => throw _privateConstructorUsedError;
   String? get email => throw _privateConstructorUsedError;
   String? get completedAt => throw _privateConstructorUsedError;
@@ -74,7 +74,7 @@ abstract class $CheckoutCopyWith<$Res> {
       Order? order,
       String? orderStatusUrl,
       String? shopifyPaymentsAccountId,
-      MailingAddress? shippingAddress,
+      Address? shippingAddress,
       ShippingRates? shippingLine,
       String? email,
       String? completedAt,
@@ -87,7 +87,7 @@ abstract class $CheckoutCopyWith<$Res> {
   $PriceV2CopyWith<$Res> get totalPriceV2;
   $PriceV2CopyWith<$Res> get subtotalPriceV2;
   $OrderCopyWith<$Res>? get order;
-  $MailingAddressCopyWith<$Res>? get shippingAddress;
+  $AddressCopyWith<$Res>? get shippingAddress;
   $ShippingRatesCopyWith<$Res>? get shippingLine;
 }
 
@@ -193,7 +193,7 @@ class _$CheckoutCopyWithImpl<$Res> implements $CheckoutCopyWith<$Res> {
       shippingAddress: shippingAddress == freezed
           ? _value.shippingAddress
           : shippingAddress // ignore: cast_nullable_to_non_nullable
-              as MailingAddress?,
+              as Address?,
       shippingLine: shippingLine == freezed
           ? _value.shippingLine
           : shippingLine // ignore: cast_nullable_to_non_nullable
@@ -266,12 +266,12 @@ class _$CheckoutCopyWithImpl<$Res> implements $CheckoutCopyWith<$Res> {
   }
 
   @override
-  $MailingAddressCopyWith<$Res>? get shippingAddress {
+  $AddressCopyWith<$Res>? get shippingAddress {
     if (_value.shippingAddress == null) {
       return null;
     }
 
-    return $MailingAddressCopyWith<$Res>(_value.shippingAddress!, (value) {
+    return $AddressCopyWith<$Res>(_value.shippingAddress!, (value) {
       return _then(_value.copyWith(shippingAddress: value));
     });
   }
@@ -311,7 +311,7 @@ abstract class _$$_CheckoutCopyWith<$Res> implements $CheckoutCopyWith<$Res> {
       Order? order,
       String? orderStatusUrl,
       String? shopifyPaymentsAccountId,
-      MailingAddress? shippingAddress,
+      Address? shippingAddress,
       ShippingRates? shippingLine,
       String? email,
       String? completedAt,
@@ -330,7 +330,7 @@ abstract class _$$_CheckoutCopyWith<$Res> implements $CheckoutCopyWith<$Res> {
   @override
   $OrderCopyWith<$Res>? get order;
   @override
-  $MailingAddressCopyWith<$Res>? get shippingAddress;
+  $AddressCopyWith<$Res>? get shippingAddress;
   @override
   $ShippingRatesCopyWith<$Res>? get shippingLine;
 }
@@ -439,7 +439,7 @@ class __$$_CheckoutCopyWithImpl<$Res> extends _$CheckoutCopyWithImpl<$Res>
       shippingAddress: shippingAddress == freezed
           ? _value.shippingAddress
           : shippingAddress // ignore: cast_nullable_to_non_nullable
-              as MailingAddress?,
+              as Address?,
       shippingLine: shippingLine == freezed
           ? _value.shippingLine
           : shippingLine // ignore: cast_nullable_to_non_nullable
@@ -547,7 +547,7 @@ class _$_Checkout extends _Checkout {
   @override
   final String? shopifyPaymentsAccountId;
   @override
-  final MailingAddress? shippingAddress;
+  final Address? shippingAddress;
   @override
   final ShippingRates? shippingLine;
   @override
@@ -671,7 +671,7 @@ abstract class _Checkout extends Checkout {
       final Order? order,
       final String? orderStatusUrl,
       final String? shopifyPaymentsAccountId,
-      final MailingAddress? shippingAddress,
+      final Address? shippingAddress,
       final ShippingRates? shippingLine,
       final String? email,
       final String? completedAt,
@@ -716,7 +716,7 @@ abstract class _Checkout extends Checkout {
   @override
   String? get shopifyPaymentsAccountId;
   @override
-  MailingAddress? get shippingAddress;
+  Address? get shippingAddress;
   @override
   ShippingRates? get shippingLine;
   @override

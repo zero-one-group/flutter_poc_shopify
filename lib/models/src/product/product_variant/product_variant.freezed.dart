@@ -29,6 +29,7 @@ mixin _$ProductVariant {
   bool get requiresShipping => throw _privateConstructorUsedError;
   String get id => throw _privateConstructorUsedError;
   int get quantityAvailable => throw _privateConstructorUsedError;
+  List<Metafield>? get metafields => throw _privateConstructorUsedError;
   PriceV2? get unitPrice => throw _privateConstructorUsedError;
   UnitPriceMeasurement? get unitPriceMeasurement =>
       throw _privateConstructorUsedError;
@@ -58,6 +59,7 @@ abstract class $ProductVariantCopyWith<$Res> {
       bool requiresShipping,
       String id,
       int quantityAvailable,
+      List<Metafield>? metafields,
       PriceV2? unitPrice,
       UnitPriceMeasurement? unitPriceMeasurement,
       List<SelectedOption>? selectedOptions,
@@ -91,6 +93,7 @@ class _$ProductVariantCopyWithImpl<$Res>
     Object? requiresShipping = freezed,
     Object? id = freezed,
     Object? quantityAvailable = freezed,
+    Object? metafields = freezed,
     Object? unitPrice = freezed,
     Object? unitPriceMeasurement = freezed,
     Object? selectedOptions = freezed,
@@ -134,6 +137,10 @@ class _$ProductVariantCopyWithImpl<$Res>
           ? _value.quantityAvailable
           : quantityAvailable // ignore: cast_nullable_to_non_nullable
               as int,
+      metafields: metafields == freezed
+          ? _value.metafields
+          : metafields // ignore: cast_nullable_to_non_nullable
+              as List<Metafield>?,
       unitPrice: unitPrice == freezed
           ? _value.unitPrice
           : unitPrice // ignore: cast_nullable_to_non_nullable
@@ -227,6 +234,7 @@ abstract class _$$_ProductVariantCopyWith<$Res>
       bool requiresShipping,
       String id,
       int quantityAvailable,
+      List<Metafield>? metafields,
       PriceV2? unitPrice,
       UnitPriceMeasurement? unitPriceMeasurement,
       List<SelectedOption>? selectedOptions,
@@ -267,6 +275,7 @@ class __$$_ProductVariantCopyWithImpl<$Res>
     Object? requiresShipping = freezed,
     Object? id = freezed,
     Object? quantityAvailable = freezed,
+    Object? metafields = freezed,
     Object? unitPrice = freezed,
     Object? unitPriceMeasurement = freezed,
     Object? selectedOptions = freezed,
@@ -310,6 +319,10 @@ class __$$_ProductVariantCopyWithImpl<$Res>
           ? _value.quantityAvailable
           : quantityAvailable // ignore: cast_nullable_to_non_nullable
               as int,
+      metafields: metafields == freezed
+          ? _value._metafields
+          : metafields // ignore: cast_nullable_to_non_nullable
+              as List<Metafield>?,
       unitPrice: unitPrice == freezed
           ? _value.unitPrice
           : unitPrice // ignore: cast_nullable_to_non_nullable
@@ -347,12 +360,14 @@ class _$_ProductVariant extends _ProductVariant {
       required this.requiresShipping,
       required this.id,
       required this.quantityAvailable,
+      final List<Metafield>? metafields,
       this.unitPrice,
       this.unitPriceMeasurement,
       final List<SelectedOption>? selectedOptions,
       this.compareAtPrice,
       this.image})
-      : _selectedOptions = selectedOptions,
+      : _metafields = metafields,
+        _selectedOptions = selectedOptions,
         super._();
 
   factory _$_ProductVariant.fromJson(Map<String, dynamic> json) =>
@@ -376,6 +391,15 @@ class _$_ProductVariant extends _ProductVariant {
   final String id;
   @override
   final int quantityAvailable;
+  final List<Metafield>? _metafields;
+  @override
+  List<Metafield>? get metafields {
+    final value = _metafields;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   final PriceV2? unitPrice;
   @override
@@ -396,7 +420,7 @@ class _$_ProductVariant extends _ProductVariant {
 
   @override
   String toString() {
-    return 'ProductVariant(price: $price, title: $title, weight: $weight, weightUnit: $weightUnit, availableForSale: $availableForSale, sku: $sku, requiresShipping: $requiresShipping, id: $id, quantityAvailable: $quantityAvailable, unitPrice: $unitPrice, unitPriceMeasurement: $unitPriceMeasurement, selectedOptions: $selectedOptions, compareAtPrice: $compareAtPrice, image: $image)';
+    return 'ProductVariant(price: $price, title: $title, weight: $weight, weightUnit: $weightUnit, availableForSale: $availableForSale, sku: $sku, requiresShipping: $requiresShipping, id: $id, quantityAvailable: $quantityAvailable, metafields: $metafields, unitPrice: $unitPrice, unitPriceMeasurement: $unitPriceMeasurement, selectedOptions: $selectedOptions, compareAtPrice: $compareAtPrice, image: $image)';
   }
 
   @override
@@ -417,6 +441,8 @@ class _$_ProductVariant extends _ProductVariant {
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality()
                 .equals(other.quantityAvailable, quantityAvailable) &&
+            const DeepCollectionEquality()
+                .equals(other._metafields, _metafields) &&
             const DeepCollectionEquality().equals(other.unitPrice, unitPrice) &&
             const DeepCollectionEquality()
                 .equals(other.unitPriceMeasurement, unitPriceMeasurement) &&
@@ -440,6 +466,7 @@ class _$_ProductVariant extends _ProductVariant {
       const DeepCollectionEquality().hash(requiresShipping),
       const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(quantityAvailable),
+      const DeepCollectionEquality().hash(_metafields),
       const DeepCollectionEquality().hash(unitPrice),
       const DeepCollectionEquality().hash(unitPriceMeasurement),
       const DeepCollectionEquality().hash(_selectedOptions),
@@ -470,6 +497,7 @@ abstract class _ProductVariant extends ProductVariant {
       required final bool requiresShipping,
       required final String id,
       required final int quantityAvailable,
+      final List<Metafield>? metafields,
       final PriceV2? unitPrice,
       final UnitPriceMeasurement? unitPriceMeasurement,
       final List<SelectedOption>? selectedOptions,
@@ -498,6 +526,8 @@ abstract class _ProductVariant extends ProductVariant {
   String get id;
   @override
   int get quantityAvailable;
+  @override
+  List<Metafield>? get metafields;
   @override
   PriceV2? get unitPrice;
   @override

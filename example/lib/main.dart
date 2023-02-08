@@ -7,8 +7,8 @@ import 'screens/profile_tab.dart';
 import 'screens/search_tab.dart';
 
 void main() {
-  ShopifyConfig.setConfig('f0428b22d1c0240f05e003bf13390e17',
-      'zero-one-tech.myshopify.com', '2022-10');
+  ShopifyConfig.setConfig('57dfd5081f75ea4c472a205830beecc0',
+      'kahfi-store2.myshopify.com', '2023-01');
   runApp(MyApp());
 }
 

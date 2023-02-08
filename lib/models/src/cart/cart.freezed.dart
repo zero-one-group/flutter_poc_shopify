@@ -24,17 +24,18 @@ mixin _$Cart {
   Attribute get attribute => throw _privateConstructorUsedError;
   List<Attribute> get attributes => throw _privateConstructorUsedError;
   CartBuyerIdentity get buyerIdentity => throw _privateConstructorUsedError;
-  String get checkoutUrl => throw _privateConstructorUsedError;
-  String get createdAt => throw _privateConstructorUsedError;
-  String get updatedAt => throw _privateConstructorUsedError;
+  @JsonKey(fromJson: JsonHelper.lineItems)
+  List<LineItem> get lines => throw _privateConstructorUsedError;
+  String? get checkoutUrl => throw _privateConstructorUsedError;
+  String? get createdAt => throw _privateConstructorUsedError;
+  String? get updatedAt => throw _privateConstructorUsedError;
   String? get note => throw _privateConstructorUsedError;
   int get totalQuantity => throw _privateConstructorUsedError;
-  CartCost get cartCost => throw _privateConstructorUsedError;
-  List<CartDiscountCode> get discountCodes =>
+  CartCost? get cartCost => throw _privateConstructorUsedError;
+  List<CartDiscountCode>? get discountCodes =>
       throw _privateConstructorUsedError;
-  List<CartDiscountAllocation> get discountAllocations =>
+  List<CartDiscountAllocation>? get discountAllocations =>
       throw _privateConstructorUsedError;
-  List<CartLine>? get lines => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -50,19 +51,19 @@ abstract class $CartCopyWith<$Res> {
       Attribute attribute,
       List<Attribute> attributes,
       CartBuyerIdentity buyerIdentity,
-      String checkoutUrl,
-      String createdAt,
-      String updatedAt,
+      @JsonKey(fromJson: JsonHelper.lineItems) List<LineItem> lines,
+      String? checkoutUrl,
+      String? createdAt,
+      String? updatedAt,
       String? note,
       int totalQuantity,
-      CartCost cartCost,
-      List<CartDiscountCode> discountCodes,
-      List<CartDiscountAllocation> discountAllocations,
-      List<CartLine>? lines});
+      CartCost? cartCost,
+      List<CartDiscountCode>? discountCodes,
+      List<CartDiscountAllocation>? discountAllocations});
 
   $AttributeCopyWith<$Res> get attribute;
   $CartBuyerIdentityCopyWith<$Res> get buyerIdentity;
-  $CartCostCopyWith<$Res> get cartCost;
+  $CartCostCopyWith<$Res>? get cartCost;
 }
 
 /// @nodoc
@@ -79,6 +80,7 @@ class _$CartCopyWithImpl<$Res> implements $CartCopyWith<$Res> {
     Object? attribute = freezed,
     Object? attributes = freezed,
     Object? buyerIdentity = freezed,
+    Object? lines = freezed,
     Object? checkoutUrl = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
@@ -87,7 +89,6 @@ class _$CartCopyWithImpl<$Res> implements $CartCopyWith<$Res> {
     Object? cartCost = freezed,
     Object? discountCodes = freezed,
     Object? discountAllocations = freezed,
-    Object? lines = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -106,18 +107,22 @@ class _$CartCopyWithImpl<$Res> implements $CartCopyWith<$Res> {
           ? _value.buyerIdentity
           : buyerIdentity // ignore: cast_nullable_to_non_nullable
               as CartBuyerIdentity,
+      lines: lines == freezed
+          ? _value.lines
+          : lines // ignore: cast_nullable_to_non_nullable
+              as List<LineItem>,
       checkoutUrl: checkoutUrl == freezed
           ? _value.checkoutUrl
           : checkoutUrl // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       updatedAt: updatedAt == freezed
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       note: note == freezed
           ? _value.note
           : note // ignore: cast_nullable_to_non_nullable
@@ -129,19 +134,15 @@ class _$CartCopyWithImpl<$Res> implements $CartCopyWith<$Res> {
       cartCost: cartCost == freezed
           ? _value.cartCost
           : cartCost // ignore: cast_nullable_to_non_nullable
-              as CartCost,
+              as CartCost?,
       discountCodes: discountCodes == freezed
           ? _value.discountCodes
           : discountCodes // ignore: cast_nullable_to_non_nullable
-              as List<CartDiscountCode>,
+              as List<CartDiscountCode>?,
       discountAllocations: discountAllocations == freezed
           ? _value.discountAllocations
           : discountAllocations // ignore: cast_nullable_to_non_nullable
-              as List<CartDiscountAllocation>,
-      lines: lines == freezed
-          ? _value.lines
-          : lines // ignore: cast_nullable_to_non_nullable
-              as List<CartLine>?,
+              as List<CartDiscountAllocation>?,
     ));
   }
 
@@ -160,8 +161,12 @@ class _$CartCopyWithImpl<$Res> implements $CartCopyWith<$Res> {
   }
 
   @override
-  $CartCostCopyWith<$Res> get cartCost {
-    return $CartCostCopyWith<$Res>(_value.cartCost, (value) {
+  $CartCostCopyWith<$Res>? get cartCost {
+    if (_value.cartCost == null) {
+      return null;
+    }
+
+    return $CartCostCopyWith<$Res>(_value.cartCost!, (value) {
       return _then(_value.copyWith(cartCost: value));
     });
   }
@@ -177,22 +182,22 @@ abstract class _$$_CartCopyWith<$Res> implements $CartCopyWith<$Res> {
       Attribute attribute,
       List<Attribute> attributes,
       CartBuyerIdentity buyerIdentity,
-      String checkoutUrl,
-      String createdAt,
-      String updatedAt,
+      @JsonKey(fromJson: JsonHelper.lineItems) List<LineItem> lines,
+      String? checkoutUrl,
+      String? createdAt,
+      String? updatedAt,
       String? note,
       int totalQuantity,
-      CartCost cartCost,
-      List<CartDiscountCode> discountCodes,
-      List<CartDiscountAllocation> discountAllocations,
-      List<CartLine>? lines});
+      CartCost? cartCost,
+      List<CartDiscountCode>? discountCodes,
+      List<CartDiscountAllocation>? discountAllocations});
 
   @override
   $AttributeCopyWith<$Res> get attribute;
   @override
   $CartBuyerIdentityCopyWith<$Res> get buyerIdentity;
   @override
-  $CartCostCopyWith<$Res> get cartCost;
+  $CartCostCopyWith<$Res>? get cartCost;
 }
 
 /// @nodoc
@@ -210,6 +215,7 @@ class __$$_CartCopyWithImpl<$Res> extends _$CartCopyWithImpl<$Res>
     Object? attribute = freezed,
     Object? attributes = freezed,
     Object? buyerIdentity = freezed,
+    Object? lines = freezed,
     Object? checkoutUrl = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
@@ -218,7 +224,6 @@ class __$$_CartCopyWithImpl<$Res> extends _$CartCopyWithImpl<$Res>
     Object? cartCost = freezed,
     Object? discountCodes = freezed,
     Object? discountAllocations = freezed,
-    Object? lines = freezed,
   }) {
     return _then(_$_Cart(
       id: id == freezed
@@ -237,18 +242,22 @@ class __$$_CartCopyWithImpl<$Res> extends _$CartCopyWithImpl<$Res>
           ? _value.buyerIdentity
           : buyerIdentity // ignore: cast_nullable_to_non_nullable
               as CartBuyerIdentity,
+      lines: lines == freezed
+          ? _value._lines
+          : lines // ignore: cast_nullable_to_non_nullable
+              as List<LineItem>,
       checkoutUrl: checkoutUrl == freezed
           ? _value.checkoutUrl
           : checkoutUrl // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       updatedAt: updatedAt == freezed
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       note: note == freezed
           ? _value.note
           : note // ignore: cast_nullable_to_non_nullable
@@ -260,19 +269,15 @@ class __$$_CartCopyWithImpl<$Res> extends _$CartCopyWithImpl<$Res>
       cartCost: cartCost == freezed
           ? _value.cartCost
           : cartCost // ignore: cast_nullable_to_non_nullable
-              as CartCost,
+              as CartCost?,
       discountCodes: discountCodes == freezed
           ? _value._discountCodes
           : discountCodes // ignore: cast_nullable_to_non_nullable
-              as List<CartDiscountCode>,
+              as List<CartDiscountCode>?,
       discountAllocations: discountAllocations == freezed
           ? _value._discountAllocations
           : discountAllocations // ignore: cast_nullable_to_non_nullable
-              as List<CartDiscountAllocation>,
-      lines: lines == freezed
-          ? _value._lines
-          : lines // ignore: cast_nullable_to_non_nullable
-              as List<CartLine>?,
+              as List<CartDiscountAllocation>?,
     ));
   }
 }
@@ -285,19 +290,20 @@ class _$_Cart extends _Cart {
       required this.attribute,
       required final List<Attribute> attributes,
       required this.buyerIdentity,
-      required this.checkoutUrl,
-      required this.createdAt,
-      required this.updatedAt,
-      required this.note,
-      required this.totalQuantity,
-      required this.cartCost,
-      required final List<CartDiscountCode> discountCodes,
-      required final List<CartDiscountAllocation> discountAllocations,
-      required final List<CartLine>? lines})
+      @JsonKey(fromJson: JsonHelper.lineItems)
+          required final List<LineItem> lines,
+      this.checkoutUrl,
+      this.createdAt,
+      this.updatedAt,
+      this.note,
+      this.totalQuantity = 0,
+      this.cartCost,
+      final List<CartDiscountCode>? discountCodes,
+      final List<CartDiscountAllocation>? discountAllocations})
       : _attributes = attributes,
+        _lines = lines,
         _discountCodes = discountCodes,
         _discountAllocations = discountAllocations,
-        _lines = lines,
         super._();
 
   factory _$_Cart.fromJson(Map<String, dynamic> json) => _$$_CartFromJson(json);
@@ -315,36 +321,40 @@ class _$_Cart extends _Cart {
 
   @override
   final CartBuyerIdentity buyerIdentity;
+  final List<LineItem> _lines;
   @override
-  final String checkoutUrl;
+  @JsonKey(fromJson: JsonHelper.lineItems)
+  List<LineItem> get lines {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_lines);
+  }
+
   @override
-  final String createdAt;
+  final String? checkoutUrl;
   @override
-  final String updatedAt;
+  final String? createdAt;
+  @override
+  final String? updatedAt;
   @override
   final String? note;
   @override
+  @JsonKey()
   final int totalQuantity;
   @override
-  final CartCost cartCost;
-  final List<CartDiscountCode> _discountCodes;
+  final CartCost? cartCost;
+  final List<CartDiscountCode>? _discountCodes;
   @override
-  List<CartDiscountCode> get discountCodes {
+  List<CartDiscountCode>? get discountCodes {
+    final value = _discountCodes;
+    if (value == null) return null;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_discountCodes);
+    return EqualUnmodifiableListView(value);
   }
 
-  final List<CartDiscountAllocation> _discountAllocations;
+  final List<CartDiscountAllocation>? _discountAllocations;
   @override
-  List<CartDiscountAllocation> get discountAllocations {
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_discountAllocations);
-  }
-
-  final List<CartLine>? _lines;
-  @override
-  List<CartLine>? get lines {
-    final value = _lines;
+  List<CartDiscountAllocation>? get discountAllocations {
+    final value = _discountAllocations;
     if (value == null) return null;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
@@ -352,7 +362,7 @@ class _$_Cart extends _Cart {
 
   @override
   String toString() {
-    return 'Cart(id: $id, attribute: $attribute, attributes: $attributes, buyerIdentity: $buyerIdentity, checkoutUrl: $checkoutUrl, createdAt: $createdAt, updatedAt: $updatedAt, note: $note, totalQuantity: $totalQuantity, cartCost: $cartCost, discountCodes: $discountCodes, discountAllocations: $discountAllocations, lines: $lines)';
+    return 'Cart(id: $id, attribute: $attribute, attributes: $attributes, buyerIdentity: $buyerIdentity, lines: $lines, checkoutUrl: $checkoutUrl, createdAt: $createdAt, updatedAt: $updatedAt, note: $note, totalQuantity: $totalQuantity, cartCost: $cartCost, discountCodes: $discountCodes, discountAllocations: $discountAllocations)';
   }
 
   @override
@@ -366,6 +376,7 @@ class _$_Cart extends _Cart {
                 .equals(other._attributes, _attributes) &&
             const DeepCollectionEquality()
                 .equals(other.buyerIdentity, buyerIdentity) &&
+            const DeepCollectionEquality().equals(other._lines, _lines) &&
             const DeepCollectionEquality()
                 .equals(other.checkoutUrl, checkoutUrl) &&
             const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
@@ -377,8 +388,7 @@ class _$_Cart extends _Cart {
             const DeepCollectionEquality()
                 .equals(other._discountCodes, _discountCodes) &&
             const DeepCollectionEquality()
-                .equals(other._discountAllocations, _discountAllocations) &&
-            const DeepCollectionEquality().equals(other._lines, _lines));
+                .equals(other._discountAllocations, _discountAllocations));
   }
 
   @JsonKey(ignore: true)
@@ -389,6 +399,7 @@ class _$_Cart extends _Cart {
       const DeepCollectionEquality().hash(attribute),
       const DeepCollectionEquality().hash(_attributes),
       const DeepCollectionEquality().hash(buyerIdentity),
+      const DeepCollectionEquality().hash(_lines),
       const DeepCollectionEquality().hash(checkoutUrl),
       const DeepCollectionEquality().hash(createdAt),
       const DeepCollectionEquality().hash(updatedAt),
@@ -396,8 +407,7 @@ class _$_Cart extends _Cart {
       const DeepCollectionEquality().hash(totalQuantity),
       const DeepCollectionEquality().hash(cartCost),
       const DeepCollectionEquality().hash(_discountCodes),
-      const DeepCollectionEquality().hash(_discountAllocations),
-      const DeepCollectionEquality().hash(_lines));
+      const DeepCollectionEquality().hash(_discountAllocations));
 
   @JsonKey(ignore: true)
   @override
@@ -418,15 +428,16 @@ abstract class _Cart extends Cart {
       required final Attribute attribute,
       required final List<Attribute> attributes,
       required final CartBuyerIdentity buyerIdentity,
-      required final String checkoutUrl,
-      required final String createdAt,
-      required final String updatedAt,
-      required final String? note,
-      required final int totalQuantity,
-      required final CartCost cartCost,
-      required final List<CartDiscountCode> discountCodes,
-      required final List<CartDiscountAllocation> discountAllocations,
-      required final List<CartLine>? lines}) = _$_Cart;
+      @JsonKey(fromJson: JsonHelper.lineItems)
+          required final List<LineItem> lines,
+      final String? checkoutUrl,
+      final String? createdAt,
+      final String? updatedAt,
+      final String? note,
+      final int totalQuantity,
+      final CartCost? cartCost,
+      final List<CartDiscountCode>? discountCodes,
+      final List<CartDiscountAllocation>? discountAllocations}) = _$_Cart;
   _Cart._() : super._();
 
   factory _Cart.fromJson(Map<String, dynamic> json) = _$_Cart.fromJson;
@@ -440,23 +451,24 @@ abstract class _Cart extends Cart {
   @override
   CartBuyerIdentity get buyerIdentity;
   @override
-  String get checkoutUrl;
+  @JsonKey(fromJson: JsonHelper.lineItems)
+  List<LineItem> get lines;
   @override
-  String get createdAt;
+  String? get checkoutUrl;
   @override
-  String get updatedAt;
+  String? get createdAt;
+  @override
+  String? get updatedAt;
   @override
   String? get note;
   @override
   int get totalQuantity;
   @override
-  CartCost get cartCost;
+  CartCost? get cartCost;
   @override
-  List<CartDiscountCode> get discountCodes;
+  List<CartDiscountCode>? get discountCodes;
   @override
-  List<CartDiscountAllocation> get discountAllocations;
-  @override
-  List<CartLine>? get lines;
+  List<CartDiscountAllocation>? get discountAllocations;
   @override
   @JsonKey(ignore: true)
   _$$_CartCopyWith<_$_Cart> get copyWith => throw _privateConstructorUsedError;

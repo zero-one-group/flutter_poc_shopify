@@ -17,6 +17,9 @@ _$_ProductVariant _$$_ProductVariantFromJson(Map<String, dynamic> json) =>
       requiresShipping: json['requiresShipping'] as bool,
       id: json['id'] as String,
       quantityAvailable: json['quantityAvailable'] as int,
+      metafields: (json['metafields'] as List<dynamic>?)
+          ?.map((e) => Metafield.fromJson(e as Map<String, dynamic>))
+          .toList(),
       unitPrice: json['unitPrice'] == null
           ? null
           : PriceV2.fromJson(json['unitPrice'] as Map<String, dynamic>),
@@ -46,6 +49,7 @@ Map<String, dynamic> _$$_ProductVariantToJson(_$_ProductVariant instance) =>
       'requiresShipping': instance.requiresShipping,
       'id': instance.id,
       'quantityAvailable': instance.quantityAvailable,
+      'metafields': instance.metafields,
       'unitPrice': instance.unitPrice,
       'unitPriceMeasurement': instance.unitPriceMeasurement,
       'selectedOptions': instance.selectedOptions,

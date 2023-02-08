@@ -1,16 +1,18 @@
 import 'package:flutter_simple_shopify/models/src/order/order.dart';
 import 'package:flutter_simple_shopify/models/src/product/price_v_2/price_v_2.dart';
+import 'package:flutter_simple_shopify/models/src/shopify_user/address/address.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../json_helper.dart';
 import 'applied_gift_cards/applied_gift_cards.dart';
 import 'available_shipping_rates/available_shipping_rates.dart';
 import 'line_item/line_item.dart';
-import 'mailing_address/mailing_address.dart';
 import 'shipping_rates/shipping_rates.dart';
 
 part 'checkout.freezed.dart';
 part 'checkout.g.dart';
+
+typedef MailingAddress = Address;
 
 @freezed
 class Checkout with _$Checkout {

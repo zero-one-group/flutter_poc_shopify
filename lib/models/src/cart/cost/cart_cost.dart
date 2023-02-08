@@ -1,8 +1,4 @@
-import 'dart:html';
-
 import 'package:freezed_annotation/freezed_annotation.dart';
-
-import '../../../json_helper.dart';
 
 part 'cart_cost.freezed.dart';
 part 'cart_cost.g.dart';

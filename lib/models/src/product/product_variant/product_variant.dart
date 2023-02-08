@@ -1,3 +1,4 @@
+import 'package:flutter_simple_shopify/models/src/product/metafield/metafield.dart';
 import 'package:flutter_simple_shopify/models/src/product/price_v_2/price_v_2.dart';
 import 'package:flutter_simple_shopify/models/src/product/selected_option/selected_option.dart';
 import 'package:flutter_simple_shopify/models/src/product/shopify_image/shopify_image.dart';
@@ -20,6 +21,7 @@ class ProductVariant with _$ProductVariant {
     required bool requiresShipping,
     required String id,
     required int quantityAvailable,
+    List<Metafield>? metafields,
     PriceV2? unitPrice,
     UnitPriceMeasurement? unitPriceMeasurement,
     List<SelectedOption>? selectedOptions,
@@ -52,6 +54,7 @@ class ProductVariant with _$ProductVariant {
       unitPriceMeasurement: nodeJson['unitPriceMeasurement'] != null
           ? UnitPriceMeasurement.fromJson(nodeJson['unitPriceMeasurement'])
           : null,
+      metafields: _getMetafields((nodeJson)),
       selectedOptions: _getOptionList((nodeJson)),
     );
   }
@@ -65,5 +68,13 @@ class ProductVariant with _$ProductVariant {
       if (v != null) optionList.add(SelectedOption.fromJson(v ?? const {}));
     });
     return optionList;
+  }
+
+  static List<Metafield> _getMetafields(Map<String, dynamic> json) {
+    List<Metafield> metafields = [];
+    json['metafields']?.forEach((v) {
+      if (v != null) metafields.add(Metafield.fromJson(v ?? const {}));
+    });
+    return metafields;
   }
 }

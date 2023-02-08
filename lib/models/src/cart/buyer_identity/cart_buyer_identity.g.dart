@@ -8,20 +8,23 @@ part of 'cart_buyer_identity.dart';
 
 _$_CartBuyerIdentity _$$_CartBuyerIdentityFromJson(Map<String, dynamic> json) =>
     _$_CartBuyerIdentity(
-      countryCode: $enumDecode(_$CountryCodeEnumMap, json['countryCode']),
-      customer: Customer.fromJson(json['customer'] as Map<String, dynamic>),
+      countryCode:
+          $enumDecodeNullable(_$CountryCodeEnumMap, json['countryCode']),
+      customer: json['customer'] == null
+          ? null
+          : ShopifyUser.fromJson(json['customer'] as Map<String, dynamic>),
       deliveryAddressPreferences:
           (json['deliveryAddressPreferences'] as List<dynamic>)
-              .map((e) => MailingAddress.fromJson(e as Map<String, dynamic>))
+              .map((e) => Address.fromJson(e as Map<String, dynamic>))
               .toList(),
-      email: json['email'] as String,
-      phone: json['phone'] as String,
+      email: json['email'] as String?,
+      phone: json['phone'] as String?,
     );
 
 Map<String, dynamic> _$$_CartBuyerIdentityToJson(
         _$_CartBuyerIdentity instance) =>
     <String, dynamic>{
-      'countryCode': _$CountryCodeEnumMap[instance.countryCode]!,
+      'countryCode': _$CountryCodeEnumMap[instance.countryCode],
       'customer': instance.customer,
       'deliveryAddressPreferences': instance.deliveryAddressPreferences,
       'email': instance.email,

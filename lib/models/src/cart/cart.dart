@@ -1,3 +1,4 @@
+import 'package:flutter_simple_shopify/models/json_helper.dart';
 import 'package:flutter_simple_shopify/models/models.dart';
 import 'package:flutter_simple_shopify/models/src/cart/buyer_identity/cart_buyer_identity.dart';
 import 'package:flutter_simple_shopify/models/src/cart/cart_line/cart_line.dart';
@@ -19,15 +20,15 @@ class Cart with _$Cart {
     required Attribute attribute,
     required List<Attribute> attributes,
     required CartBuyerIdentity buyerIdentity,
-    required String checkoutUrl,
-    required String createdAt,
-    required String updatedAt,
-    required String? note,
-    required int totalQuantity,
-    required CartCost cartCost,
-    required List<CartDiscountCode> discountCodes,
-    required List<CartDiscountAllocation> discountAllocations,
-    required List<CartLine>? lines,
+    @JsonKey(fromJson: JsonHelper.lineItems) required List<LineItem> lines,
+    String? checkoutUrl,
+    String? createdAt,
+    String? updatedAt,
+    String? note,
+    @Default(0) int totalQuantity,
+    CartCost? cartCost,
+    List<CartDiscountCode>? discountCodes,
+    List<CartDiscountAllocation>? discountAllocations,
   }) = _Cart;
 
   factory Cart.fromJson(Map<String, dynamic> json) => _$CartFromJson(json);

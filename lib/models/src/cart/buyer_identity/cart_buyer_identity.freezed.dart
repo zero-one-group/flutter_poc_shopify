@@ -20,12 +20,12 @@ CartBuyerIdentity _$CartBuyerIdentityFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$CartBuyerIdentity {
-  CountryCode get countryCode => throw _privateConstructorUsedError;
-  Customer get customer => throw _privateConstructorUsedError;
-  List<MailingAddress> get deliveryAddressPreferences =>
+  CountryCode? get countryCode => throw _privateConstructorUsedError;
+  ShopifyUser? get customer => throw _privateConstructorUsedError;
+  List<Address> get deliveryAddressPreferences =>
       throw _privateConstructorUsedError;
-  String get email => throw _privateConstructorUsedError;
-  String get phone => throw _privateConstructorUsedError;
+  String? get email => throw _privateConstructorUsedError;
+  String? get phone => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -39,13 +39,13 @@ abstract class $CartBuyerIdentityCopyWith<$Res> {
           CartBuyerIdentity value, $Res Function(CartBuyerIdentity) then) =
       _$CartBuyerIdentityCopyWithImpl<$Res>;
   $Res call(
-      {CountryCode countryCode,
-      Customer customer,
-      List<MailingAddress> deliveryAddressPreferences,
-      String email,
-      String phone});
+      {CountryCode? countryCode,
+      ShopifyUser? customer,
+      List<Address> deliveryAddressPreferences,
+      String? email,
+      String? phone});
 
-  $CustomerCopyWith<$Res> get customer;
+  $ShopifyUserCopyWith<$Res>? get customer;
 }
 
 /// @nodoc
@@ -69,29 +69,33 @@ class _$CartBuyerIdentityCopyWithImpl<$Res>
       countryCode: countryCode == freezed
           ? _value.countryCode
           : countryCode // ignore: cast_nullable_to_non_nullable
-              as CountryCode,
+              as CountryCode?,
       customer: customer == freezed
           ? _value.customer
           : customer // ignore: cast_nullable_to_non_nullable
-              as Customer,
+              as ShopifyUser?,
       deliveryAddressPreferences: deliveryAddressPreferences == freezed
           ? _value.deliveryAddressPreferences
           : deliveryAddressPreferences // ignore: cast_nullable_to_non_nullable
-              as List<MailingAddress>,
+              as List<Address>,
       email: email == freezed
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       phone: phone == freezed
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 
   @override
-  $CustomerCopyWith<$Res> get customer {
-    return $CustomerCopyWith<$Res>(_value.customer, (value) {
+  $ShopifyUserCopyWith<$Res>? get customer {
+    if (_value.customer == null) {
+      return null;
+    }
+
+    return $ShopifyUserCopyWith<$Res>(_value.customer!, (value) {
       return _then(_value.copyWith(customer: value));
     });
   }
@@ -105,14 +109,14 @@ abstract class _$$_CartBuyerIdentityCopyWith<$Res>
       __$$_CartBuyerIdentityCopyWithImpl<$Res>;
   @override
   $Res call(
-      {CountryCode countryCode,
-      Customer customer,
-      List<MailingAddress> deliveryAddressPreferences,
-      String email,
-      String phone});
+      {CountryCode? countryCode,
+      ShopifyUser? customer,
+      List<Address> deliveryAddressPreferences,
+      String? email,
+      String? phone});
 
   @override
-  $CustomerCopyWith<$Res> get customer;
+  $ShopifyUserCopyWith<$Res>? get customer;
 }
 
 /// @nodoc
@@ -138,23 +142,23 @@ class __$$_CartBuyerIdentityCopyWithImpl<$Res>
       countryCode: countryCode == freezed
           ? _value.countryCode
           : countryCode // ignore: cast_nullable_to_non_nullable
-              as CountryCode,
+              as CountryCode?,
       customer: customer == freezed
           ? _value.customer
           : customer // ignore: cast_nullable_to_non_nullable
-              as Customer,
+              as ShopifyUser?,
       deliveryAddressPreferences: deliveryAddressPreferences == freezed
           ? _value._deliveryAddressPreferences
           : deliveryAddressPreferences // ignore: cast_nullable_to_non_nullable
-              as List<MailingAddress>,
+              as List<Address>,
       email: email == freezed
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       phone: phone == freezed
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -165,7 +169,7 @@ class _$_CartBuyerIdentity extends _CartBuyerIdentity {
   _$_CartBuyerIdentity(
       {required this.countryCode,
       required this.customer,
-      required final List<MailingAddress> deliveryAddressPreferences,
+      required final List<Address> deliveryAddressPreferences,
       required this.email,
       required this.phone})
       : _deliveryAddressPreferences = deliveryAddressPreferences,
@@ -175,20 +179,20 @@ class _$_CartBuyerIdentity extends _CartBuyerIdentity {
       _$$_CartBuyerIdentityFromJson(json);
 
   @override
-  final CountryCode countryCode;
+  final CountryCode? countryCode;
   @override
-  final Customer customer;
-  final List<MailingAddress> _deliveryAddressPreferences;
+  final ShopifyUser? customer;
+  final List<Address> _deliveryAddressPreferences;
   @override
-  List<MailingAddress> get deliveryAddressPreferences {
+  List<Address> get deliveryAddressPreferences {
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_deliveryAddressPreferences);
   }
 
   @override
-  final String email;
+  final String? email;
   @override
-  final String phone;
+  final String? phone;
 
   @override
   String toString() {
@@ -236,26 +240,26 @@ class _$_CartBuyerIdentity extends _CartBuyerIdentity {
 
 abstract class _CartBuyerIdentity extends CartBuyerIdentity {
   factory _CartBuyerIdentity(
-      {required final CountryCode countryCode,
-      required final Customer customer,
-      required final List<MailingAddress> deliveryAddressPreferences,
-      required final String email,
-      required final String phone}) = _$_CartBuyerIdentity;
+      {required final CountryCode? countryCode,
+      required final ShopifyUser? customer,
+      required final List<Address> deliveryAddressPreferences,
+      required final String? email,
+      required final String? phone}) = _$_CartBuyerIdentity;
   _CartBuyerIdentity._() : super._();
 
   factory _CartBuyerIdentity.fromJson(Map<String, dynamic> json) =
       _$_CartBuyerIdentity.fromJson;
 
   @override
-  CountryCode get countryCode;
+  CountryCode? get countryCode;
   @override
-  Customer get customer;
+  ShopifyUser? get customer;
   @override
-  List<MailingAddress> get deliveryAddressPreferences;
+  List<Address> get deliveryAddressPreferences;
   @override
-  String get email;
+  String? get email;
   @override
-  String get phone;
+  String? get phone;
   @override
   @JsonKey(ignore: true)
   _$$_CartBuyerIdentityCopyWith<_$_CartBuyerIdentity> get copyWith =>
